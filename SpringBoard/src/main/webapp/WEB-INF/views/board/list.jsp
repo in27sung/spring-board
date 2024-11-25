@@ -28,7 +28,9 @@
 					<c:forEach var="boardList" items="${boardList}">
 						<tr>
 							<td>${boardList.bno}</td>
-							<td>${boardList.title}</td>
+							<td> <a href="/board/read?bno=${boardList.bno}">${boardList.title}</a>
+							</td>
+<%-- 							<td>${boardList.title}</td> --%>
 							<td>${boardList.writer}</td>
 							<td>
 								<fmt:formatDate value="${boardList.regdate}" pattern="yyyy/MM/dd"/> 
@@ -54,6 +56,16 @@
 	</div>
 </div>
 
+	<script type="text/javascript">
+		// JSP(JAVA) - JSTL/EL - HTML - JavaScript/Jquery
+		// 글쓰기 성공했을때만 
+		// 메세지 실행가능하도록 
+		var result = "${result}";
+		
+		if(result == "registOK"){
+			alert("글쓰기 성공!");
+		}
+	</script>
 
 
 

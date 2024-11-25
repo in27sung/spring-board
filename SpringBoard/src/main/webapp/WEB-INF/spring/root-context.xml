@@ -17,7 +17,7 @@
 		  <property name="username"
 		  			value="root"/>
 		  <property name="password"
-		  			value="1234"/>
+		  			value="Dlstjd1915"/>
 	</bean>
 	<!-- 커넥션풀 설정 -->
 	<!-- 디비연결 객체(DataSource) 생성 -->
