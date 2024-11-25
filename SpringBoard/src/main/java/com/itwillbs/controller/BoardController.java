@@ -42,6 +42,7 @@ public class BoardController {
 		
 	}
 	// 게시판 만들기(글 작성하기)
+	// http://localhost:8080/board/regist
 	// /board/regist (POST - 정보처리(생성, 수정, 삭제))
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public String registPOST(BoardVO vo, RedirectAttributes rttr) throws Exception {
@@ -90,8 +91,12 @@ public class BoardController {
 	
 	// 게시판 본문보기(GET) (/board/read)
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void readGET() throws Exception  {
+	public void readGET() throws Exception {
 		logger.info("readGET() 실행");
+		
+		// 전달받은 정보 저장(bno) 
+		
+		
 		logger.info("/views/board/read.jsp 페이지 연결");
 	}
 }// BoardController 
