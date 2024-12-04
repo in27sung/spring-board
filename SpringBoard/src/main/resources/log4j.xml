@@ -15,6 +15,14 @@
 		<level value="info" />
 	</logger>
 	
+	<logger name="com.itwillbs.service">
+		<level value="info" />
+	</logger>
+	
+	<logger name="com.itwillbs.persistence">
+		<level value="info" />
+	</logger>
+	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
@@ -31,6 +39,8 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+
 
 	<!-- Root Logger -->
 	<root>
