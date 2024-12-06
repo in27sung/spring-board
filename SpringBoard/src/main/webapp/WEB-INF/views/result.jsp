@@ -16,8 +16,9 @@
  	<h2>메세지 : ${map.msg } </h2>
  	<h3> 파일목록 </h3>
  	<c:forEach var="file"  items="${map.fileList }">
- 		<h3>${file }</h3>
+ 		<h3><a href="/download?fileName=${file}">${file}</a></h3>
  		<%-- <img src="C:/upload/$ {file }"> --%>
+ 		<img src="/download?fileName=${file}" width="50" height="50">
  	</c:forEach>
  	
  	<hr>
