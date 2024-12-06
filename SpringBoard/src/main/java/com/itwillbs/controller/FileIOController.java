@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 @Controller
 public class FileIOController {
 
@@ -71,7 +73,8 @@ public class FileIOController {
 
 		return "result";
 	}// fileUploadPOST
-
+	
+	// 파일 다운로드(썸네일)
 	private List<String> fileProcess(MultipartHttpServletRequest multi) throws Exception {
 
 		// 파일 업로드 & 파일 이름저장
@@ -138,6 +141,31 @@ public class FileIOController {
 
 		fis.close();
 		out.close();
+	}
+	
+	// 파일 다운로드
+	@RequestMapping(value = "/thumbDown", method = RequestMethod.GET)
+	public void fileThumbDownloadGET(@RequestParam("fileName") String fileName, HttpServletResponse response)
+			throws Exception {
+
+		logger.info(" fileDownloadGET() 호출 ");
+
+		OutputStream out = response.getOutputStream();
+
+		// 다운로드할 파일 준비
+		String downFile = "C:\\upload\\" + fileName;
+		File file = new File(downFile);
+	
+		if(file.exists()) {
+			// 썸네일 생성 + 화면에 출력 
+		   	Thumbnails.of(file)
+					    .size(50, 50)
+						.outputFormat("png")
+						.toOutputStream(out);
+		}else {
+			return;
+		}
+		
 	}
 
 }// class
